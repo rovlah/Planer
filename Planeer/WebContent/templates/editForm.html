@@ -1,0 +1,29 @@
+<!-- Form used for updation of data into database -->
+<meta charset="utf-8">
+<form class="form-horizontal alert alert-warning" id="editForm" ng-submit="UpdateInfo(currentUser)" hidden>
+<h3 class="text-center">Izmjena postojećeg zadatka</h3>
+	<div class="form-group">
+		<label for="Kategorija">Ime kategorije:</label>
+		<input type="text" class="form-control" ng-model="currentUser.ime_kategorije" value="{{currentUser.ime_kategorije}}">
+	</div>
+	<div class="form-group">
+		<label for="Ime">Zadatak:</label>
+		<input type="text" class="form-control" ng-model="currentUser.ime_obveze" value="{{currentUser.ime}}">
+	</div>
+		<div class="form-group">
+		<label for="Vaznost">Važan zadatak?</label>
+		<label for="" class="radio-inline gender">
+			<input type="radio" ng-model="currentUser.vaznost_obveze" value="DA" >Da
+		</label>
+		<label for="" class="radio-inline gender">
+			<input type="radio" name="vaznost" ng-model="currentUser.vaznost_obveze" value="NE">Ne
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="Datum">Datum do kojeg vrijedi:</label>
+		<input type="date" class="form-control" ng-model="currentUser.datum_obveze" ng-model-options="{timezone:'UTC'}" value="{{currentUser.datum_obveze}}">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="empList.$invalid" ng-click="updateMsg(currentUser.id_obveze)">Ažuriranje</button>
+	</div>
+</form>

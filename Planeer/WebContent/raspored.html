@@ -1,0 +1,116 @@
+<html ng-app="crudApp">
+<head>
+<meta charset="utf-8">
+<title>Raspored predavanja</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!-- Include main CSS -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Include jQuery library -->
+<script src="js/jQuery/jquery.min.js"></script>
+<!-- Include AngularJS library -->
+<script src="lib/angular/angular.min.js"></script>
+<!-- Include Bootstrap Javascript -->
+<script src="js/bootstrap.min.js"></script>
+<script src="//code.angularjs.org/snapshot/angular-animate.js"></script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header col-md-8">
+            <button type="button" class="navbar-toggle" toggle="collapse" target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://localhost/Planeer/index.php#/dashboard" class="navbar-brand" rel="home" title="Studentski planer">Studentski planer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div >
+      <div class="container" style="margin-top:20px;">
+        <div data-ng-view="" id="ng-view" class="slide-animation"></div>
+      </div>
+      <br>
+      <br>
+
+<div class="container wrapper" ng-controller="DbController">
+<h1 class="text-center">Raspored predavanja</h1>
+<br>
+<span ng-app="ngAnimate">
+  <div ng-init="checked = true">
+  <label style="font-weight:600;font-family:Helvetica;text-align:center;">
+    <input type="checkbox" ng-model="checked" />
+    Pomoć
+  </label>
+  <div class="content-area sample-show-hide" ng-show="checked" style="font-family:Helvetica;text-align:center;">
+    Da biste dodali predavanje ili vježbe, potrebno je kliknuti na gumb Novo koji otvara formu za unos novog predavanja ili vježbe. Moguć je unos naziva kolegija, imena i prezimena profesora, dana u tjednu kojim se predavanje ili vježbe održavaju, početak predavanja i završetak predavanja. Ispod se nalazi tablica sa svim predavanjima i vježbama, koje je moguće mijenjati (klikom na narančasti gumb) ili obrisati (klikom na crveni gumb). Predavanja ili vježbe moguće je pretraživati koristeći filter.
+  </div>
+</div>
+</span>
+<br>
+<nav class="navbar navbar-default">
+<div class="navbar-header">
+<div class="alert alert-default navbar-brand search-box">
+<button class="btn btn-primary" ng-show="show_form" ng-click="formToggle()">Novo <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+</div>
+<div class="alert alert-default input-group search-box">
+<span class="input-group-btn">
+<input type="text" class="form-control" placeholder="Pretrazivanje rasporeda" ng-model="search_query">
+</span>
+</div>
+</div>
+</nav>
+<div class="col-md-6 col-md-offset-3">
+
+<!-- Include form template which is used to insert data into database -->
+<div ng-include src="'templates/form-raspored.html'"></div>
+
+<!-- Include form template which is used to edit and update data into database -->
+<div ng-include src="'templates/editForm-raspored.html'"></div>
+</div>
+<div class="clearfix"></div>
+
+<!-- Table to show employee detalis -->
+<div class="table-responsive">
+<table class="table table-hover">
+<tr>
+<th>Broj</th>
+<th>Naziv kolegija</th>
+<th>Predavanje ili vježbe?</th>
+<th>Ime i prezime profesora</th>
+<th>Dan</th>
+<th>Početak</th>
+<th>Završetak</th>
+</tr>
+<tr ng-repeat="detail in details| filter:search_query">
+<td>
+<span>{{detail.broj}}</span></td>
+<td>{{detail.naziv_kolegija}}</td>
+<td>{{detail.pred_vjezbe}}</td>
+<td>{{detail.ime_profesora}}</td>
+<td>{{detail.dan}}</td>
+<td>{{detail.pocetak}}</td>
+<td>{{detail.zavrsetak}}</td>
+<td>
+<button class="btn btn-warning" ng-click="editInfo(detail)" title="Promjena"><span class="glyphicon glyphicon-edit"></span></button>
+</td>
+<td>
+<button class="btn btn-danger" ng-click="deleteInfo(detail)" title="Brisanje"><span class="glyphicon glyphicon-trash"></span></button>
+</td>
+</tr>
+</table>
+</div>
+<a href="http://localhost/Planeer/index.php#/dashboard" class="btn btn-primary btn-lg" role="button">NATRAG</a>
+</div>
+</div>
+
+<!-- Include controller -->
+<script src="js/angular-script-raspored.js"></script>
+</body>
+</html>

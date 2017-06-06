@@ -1,0 +1,37 @@
+<!-- Form used for updation of data into database -->
+<meta charset="utf-8">
+<form class="form-horizontal alert alert-warning" id="editForm" ng-submit="UpdateInfo(currentUser)" hidden>
+<h3 class="text-center">Izmjena predavanja ili vježbi</h3>
+<div class="form-group">
+<label for="Name">Naziv kolegija:</label>
+<input type="text" class="form-control" ng-model="currentUser.naziv_kolegija" value="{{currentUser.naziv_kolegija}}">
+</div>
+<div class="form-group">
+<label for="Gender">Predavanja ili vježbe?</label>
+<label for="" class="radio-inline gender">
+<input type="radio" ng-model="currentUser.pred_vjezbe" value="Predavanja" >Predavanja
+</label>
+<label for="" class="radio-inline gender">
+<input type="radio" name="gender" ng-model="currentUser.pred_vjezbe" value="Vjezbe">Vježbe
+</label>
+</div>
+<div class="form-group">
+<label for="Email">Ime i prezime profesora:</label>
+<input type="text" class="form-control" ng-model="currentUser.ime_profesora" value="{{currentUser.ime_profesora}}">
+</div>
+<div class="form-group">
+<label for="Address">Dan:</label>
+<input type="text" class="form-control" ng-model="currentUser.dan" value="{{currentUser.dan}}">
+</div>
+<div class="form-group">
+<label for="Address">Početak:</label>
+<input type="text" class="form-control" ng-model="currentUser.pocetak" value="{{currentUser.pocetak}}">
+</div>
+<div class="form-group">
+<label for="Address">Završetak:</label>
+<input type="text" class="form-control" ng-model="currentUser.zavrsetak" value="{{currentUser.zavrsetak}}">
+</div>
+<div class="form-group">
+<button class="btn btn-warning" ng-disabled="empList.$invalid" ng-click="updateMsg(currentUser.emp_id)">Azuriranje</button>
+</div>
+</form>

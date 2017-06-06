@@ -1,0 +1,52 @@
+<!-- Form used to add new entries of employee in database -->
+<meta charset="utf-8">
+<form class="form-horizontal alert alert-warning" name="empList" id="empForm" ng-submit="insertInfo(empInfo);" hidden>
+<h3 class="text-center">Unos novog predavanja ili vježbe</h3>
+<div class="form-group">
+<label for="Name">Naziv kolegija:</label>
+<input type="text" name="emp_name" class="form-control" placeholder="Unesite naziv kolegija" ng-model="empInfo.naziv_kolegija" autofocus required />
+</div>
+<div class="form-group">
+<p class="text-danger" ng-show="empList.emp_name.$invalid && empList.emp_name.$dirty">Nedostaje naziv kolegija!</p>
+</div>
+<div class="form-group">
+<label for="Gender">Predavanje ili vježbe?</label>
+<label for="" class="radio-inline gender">
+<input type="radio" name="emp_gender" value="Predavanje" ng-model="empInfo.pred_vjezbe">Predavanje
+</label>
+<label for="" class="radio-inline gender">
+<input type="radio" name="emp_gender" value="Vjezbe" ng-model="empInfo.pred_vjezbe">Vježbe
+</label>
+</div>
+<div class="form-group">
+<label for="Email">Ime i prezime profesora:</label>
+<input type="text" name="emp_email" class="form-control" placeholder="Unesite ime i prezime profesora" ng-model="empInfo.ime_profesora" autofocus required />
+</div>
+<div class="form-group">
+<p class="text-danger" ng-show="empList.emp_email.$invalid && empList.emp_email.$dirty">Nedostaje ime i prezime profesora!</p>
+</div>
+<div class="form-group">
+<label for="Address">Dan:</label>
+<input type="text" name="emp_address" class="form-control" placeholder="Unesite dan u tjednu" ng-model="empInfo.dan" autofocus required />
+</div>
+<div class="form-group">
+<p class="text-danger" ng-show="empList.emp_address.$invalid && empList.emp_address.$dirty">Nedostaje dan u tjednu!</p>
+</div>
+<div class="form-group">
+<label for="Address">Početak:</label>
+<input type="time" name="emp_address" class="form-control" placeholder="Unesite pocetak predavanja/vjezbi" ng-model="empInfo.pocetak" autofocus required />
+</div>
+<div class="form-group">
+<p class="text-danger" ng-show="empList.emp_address.$invalid && empList.emp_address.$dirty">Nedostaje pocetak!</p>
+</div>
+<div class="form-group">
+<label for="Address">Završetak:</label>
+<input type="time" name="emp_address" class="form-control" placeholder="Unesite zavrsetak predavanja/vjezbi" ng-model="empInfo.zavrsetak" autofocus required />
+</div>
+<div class="form-group">
+<p class="text-danger" ng-show="empList.emp_address.$invalid && empList.emp_address.$dirty">Nedostaje zavrsetak!</p>
+</div>
+<div class="form-group">
+<button class="btn btn-warning" ng-disabled="empList.$invalid">Spremanje</button>
+</div>
+</form>

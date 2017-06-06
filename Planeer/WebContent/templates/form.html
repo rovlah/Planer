@@ -1,0 +1,38 @@
+<!-- Form used to add new entries of employee in database -->
+<meta charset="utf-8">
+<form class="form-horizontal alert alert-warning" name="empList" id="empForm" ng-submit="insertInfo(empInfo);" hidden>
+<h3 class="text-center">Unos novog zadatka</h3>
+	<div class="form-group">
+		<label for="Kategorija">Ime kategorije:</label>
+		<input type="text" name="ime_kategorije" class="form-control" placeholder="Unesite ime kategorije" ng-model="empInfo.kategorija" value="" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="empList.ime_kategorije.$invalid && empList.ime_kategorije.$dirty">Polje za unos kategorije je prazno!</p>
+	</div>
+	<div class="form-group">
+		<label for="Ime">Zadatak:</label>
+		<input type="text" name="ime_obveze" class="form-control" placeholder="Unesite zadatak" ng-model="empInfo.ime" value="" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="empList.ime_obveze.$invalid && empList.ime_obveze.$dirty">Polje za unos naziva je prazno!</p>
+	</div>
+	<div class="form-group">
+		<label for="Vaznost obveze">Važan zadatak?</label>
+		<label for="" class="radio-inline gender">
+			<input type="radio" name="vaznost_obveze" value="DA" ng-model="empInfo.vaznost">Da
+		</label>
+		<label for="" class="radio-inline gender">
+			<input type="radio" name="vaznost_obveze" value="NE" ng-model="empInfo.vaznost">Ne
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="Datum">Datum do kojeg vrijedi:</label>
+		<input type="date" name="datum_obveze" class="form-control" placeholder="Unesite datum do kojeg zadatak vrijedi" ng-model="empInfo.datum" ng-model-options="{timezone:'UTC'}" autofocus required />		
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="empList.datum_obveze.$invalid && empList.datum_obveze.$dirty">Polje za unos datuma je prazno!</p>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="empList.$invalid">Objava</button>
+	</div>
+</form>

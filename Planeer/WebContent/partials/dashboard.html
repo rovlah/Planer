@@ -1,0 +1,53 @@
+<head>
+<meta charset="utf-8">
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="//code.angularjs.org/snapshot/angular-animate.js"></script>
+  </head>
+  <body>
+<div class="page-content">
+    <div class="row">
+        <div class="space-6"></div>
+        <div class="col-sm-10 col-sm-offset-1" style="text-align:center;">
+            <div id="login-box" class="login-box visible widget-box no-border">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <h4 class="header blue lighter bigger" style="font-size:30px">
+                    <i class="icon-coffee green"></i>
+                    Dobrodošli u aplikaciju Studentski planer!
+                </h4>
+                <br>
+                <img src="http://bothendsofthelead.com.au/wp-content/uploads/2014/08/Plan-Your-Day2.jpg" alt="W3Schools.com" style="height:200px;weight:200px;display:block;margin:0 auto;">
+                       <br>
+                        <div class="space-16" style="font-size:20px"></div>
+                        ID korisnika: {{uid}}
+                        <br/>Ime i prezime: {{ime}}
+                        <br/>Korisničko ime: {{email}}
+                        <br/>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-content -->
+<br>
+<br>
+<p style="text-align:center;">
+<a href="http://localhost/Planeer/index.html" class="btn btn-primary btn-lg" role="button">TO DO LISTE</a>
+<a href="http://localhost/Planeer/raspored.html" class="btn btn-primary btn-lg" role="button">RASPORED PREDAVANJA</a>
+<a href="http://localhost/Planeer/upload/angularjs.html" class="btn btn-primary btn-lg" role="button">UPLOAD DATOTEKA</a>
+<a ng-click="logout();" class="btn btn-primary btn-lg" role="button">ODJAVA</a></p>
+
+<span ng-app="ngAnimate">
+  <div ng-init="checked = true">
+  <label style="font-weight:600;font-family:Helvetica;text-align:center;">
+    <input type="checkbox" ng-model="checked" />
+    Pomoć
+  </label>
+  <div class="content-area sample-show-hide" ng-show="checked" style="font-family:Helvetica;text-align:center;">
+    Studentski planer je aplikacija namijenjena studentima koji žele organizirati svoje obveze. Sa svojim user-friendly sučeljem korisniku omogućava lako snalaženje u mogućnostima koje nudi, a to su izrada to-do listi i upravljanje rasporedom predavanja.
+  </div>
+</div>
+</span>
+</body>
